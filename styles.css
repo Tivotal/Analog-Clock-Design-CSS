@@ -67,14 +67,15 @@ body {
   width: 5px;
   height: 60px;
   background: #aaa;
+  box-shadow: 0 0 5px #0005, 
+              inset 1.5px 3px 0px #333,
+              inset -1.5px -3px 0px #333;
   left: 87.5px;
   top: 43px;
   transform-origin: 2px 47px;
   /* transform: rotate(70deg); */
   transform: rotate(var(--h));
   border-radius: 3px 3px 1px 1px;
-  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333,
-    inset -1.5px -3px 0px #333;
   z-index: 1;
   animation: time 43200s linear infinite;
 }
@@ -83,15 +84,16 @@ body {
   position: absolute;
   width: 4px;
   height: 78px;
-  background: #aaa;
+  background: #aaa;  
+  box-shadow: 0 0 5px #0005, 
+              inset 1.5px 3px 0px #333,
+              inset -1.5px -3px 0px #333;
   left: 88px;
   top: 25px;
   transform-origin: 2px 65px;
   /* transform: rotate(30deg); */
   transform: rotate(var(--m));
   border-radius: 3px 3px 1px 1px;
-  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333,
-    inset -1.5px -3px 0px #333;
   z-index: 2;
   animation: time 3600s linear infinite;
 }
