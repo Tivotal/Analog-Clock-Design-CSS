@@ -1,0 +1,140 @@
+/* Created by Tivotal */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+}
+
+.clock {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  outline: 10px solid #333;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(200, 200, 200, 0.2) 0%,
+      rgba(200, 200, 200, 0.2) 2%,
+      transparent 2%,
+      transparent 3%,
+      rgba(200, 200, 200, 0.2) 3%,
+      transparent 3%
+    ),
+    conic-gradient(
+      white 0%,
+      silver 10%,
+      white 35%,
+      silver 45%,
+      white 60%,
+      silver 70%,
+      white 80%,
+      silver 95%,
+      white 100%
+    );
+  box-shadow: inset 0 0 20px #0007;
+}
+
+.clock p {
+  position: absolute;
+  color: #333;
+  font-size: 24px;
+  text-shadow: 0 157px 0 #333;
+  z-index: 1;
+}
+
+.clock .horizontal {
+  left: 5px;
+  top: 72px;
+  transform: rotate(-90deg);
+}
+
+.clock .vertical {
+  left: 83.5px;
+  top: -3px;
+}
+
+.hour {
+  position: absolute;
+  width: 5px;
+  height: 60px;
+  background: #aaa;
+  left: 87.5px;
+  top: 43px;
+  transform-origin: 2px 47px;
+  /* transform: rotate(70deg); */
+  transform: rotate(var(--h));
+  border-radius: 3px 3px 1px 1px;
+  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333,
+    inset -1.5px -3px 0px #333;
+  z-index: 1;
+  animation: time 43200s linear infinite;
+}
+
+.min {
+  position: absolute;
+  width: 4px;
+  height: 78px;
+  background: #aaa;
+  left: 88px;
+  top: 25px;
+  transform-origin: 2px 65px;
+  /* transform: rotate(30deg); */
+  transform: rotate(var(--m));
+  border-radius: 3px 3px 1px 1px;
+  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333,
+    inset -1.5px -3px 0px #333;
+  z-index: 2;
+  animation: time 3600s linear infinite;
+}
+
+.sec {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  left: 85px;
+  top: 85px;
+  border: 1px solid #eee;
+  z-index: 3;
+  transform: rotate(var(--s));
+  animation: time 60s steps(60, end) 0s infinite;
+}
+
+.sec::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 85px;
+  left: 3px;
+  bottom: -10px;
+  background: red;
+  border-radius: 2px;
+  box-shadow: 5px 0 2px rgba(128, 128, 128, 0.2);
+}
+
+.sec::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 2px;
+  top: 2px;
+  background: #555;
+  border-radius: 50%;
+}
+
+@keyframes time {
+  100% {
+    transform: rotate(360deg);
+  }
+}
