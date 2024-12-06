@@ -1,3 +1,5 @@
+/* Created by Tivotal */
+
 window.addEventListener("load", () => {
   let date = new Date();
 
